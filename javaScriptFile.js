@@ -13,13 +13,15 @@ document.getElementById("generate").addEventListener("click", function() {
     //lengthP is used to store the length of the password given by the user
     var lengthP = parseInt(document.getElementById("length").value);
     //validating the user input including no entry to the length of password field
-    if (isNaN(lengthP) || (lengthP<8 || lengthP>128)) {
+    if (isNaN(lengthP) || lengthP<8 || lengthP>128) {
         alert("Please enter length of password in between 8 and 128");
         //looping over till the valid input fron the user
-        while(document.getElementById("length").value < 8 || document.getElementById("length").value >128){
+        while(parseInt(document.getElementById("length").value) < 8 || parseInt(document.getElementById("length").value) >128 || isNaN(parseInt(document.getElementById("length").value))){
         document.getElementById("length").value = parseInt(prompt("Enter valid length(8-128) of password"));
         }
     }
+    //assigning the valid length to the variable
+    lengthP = document.getElementById("length").value;
     //checking the validity of the input whether at least one of the character types is selected by the user
     if (document.getElementById("Check1").checked || document.getElementById("Check2").checked || document.getElementById("Check3").checked || document.getElementById("Check4").checked) {          
        
